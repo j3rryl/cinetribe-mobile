@@ -1,6 +1,7 @@
 import 'package:cinetribe/components/my_button.dart';
 import 'package:cinetribe/components/my_textfield.dart';
 import 'package:cinetribe/components/square_tile.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 // import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -24,37 +25,46 @@ class _LoginPageState extends State<LoginPage> {
         builder: (context) {
           return const Center(child: CircularProgressIndicator());
         });
-    //sign In
-    // try {
-    //   await FirebaseAuth.instance.signInWithEmailAndPassword(
-    //       email: emailController.text, password: passwordController.text);
-    //   Navigator.pop(context);
-    // } on FirebaseAuthException catch (e) {
-    //   Navigator.pop(context);
+    // sign In
+    try {
+      await FirebaseAuth.instance.signInWithEmailAndPassword(
+          email: emailController.text, password: passwordController.text);
+      if (context.mounted) Navigator.pop(context);
+    } on FirebaseAuthException catch (e) {
+      Navigator.pop(context);
+      anyError(e.code);
 
-    //   if (e.code == 'user-not-found') {
-    //     wrongEmail();
-    //   } else if (e.code == 'wrong-password') {
-    //     wrongPassword();
-    //   }
-    // }
+      // if (e.code == 'user-not-found') {
+      //   wrongEmail();
+      // } else if (e.code == 'wrong-password') {
+      //   wrongPassword();
+      // }
+    }
   }
 
-  // void wrongEmail() {
-  //   showDialog(
-  //       context: context,
-  //       builder: (context) {
-  //         return const AlertDialog(title: Text('Incorrect email'));
-  //       });
-  // }
+  void wrongEmail() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return const AlertDialog(title: Text('Incorrect email'));
+        });
+  }
 
-  // void wrongPassword() {
-  //   showDialog(
-  //       context: context,
-  //       builder: (context) {
-  //         return const AlertDialog(title: Text('Incorrect password'));
-  //       });
-  // }
+  void wrongPassword() {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return const AlertDialog(title: Text('Incorrect password'));
+        });
+  }
+
+  void anyError(String message) {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(title: Text(message));
+        });
+  }
 
   @override
   Widget build(BuildContext context) {

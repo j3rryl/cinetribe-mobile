@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "804746525773",
+    "project_id": "cine-tribe",
+    "storage_bucket": "cine-tribe.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:804746525773:android:da2662c3fa4e1d2fedb004",
+        "android_client_info": {
+          "package_name": "com.example.cinetribe"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "804746525773-4b580dq21rmmda55vmlii4kbbue8c5nh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsqJ0R1ykOWTWmIt2su_wvY36OLSY4ECY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "804746525773-4b580dq21rmmda55vmlii4kbbue8c5nh.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "804746525773-9ssh0hpkogjokij0rs67ebrag2dee0um.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.cinetribe.RunnerTests"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
