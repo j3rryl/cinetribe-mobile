@@ -59,23 +59,20 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.grey[300],
+        backgroundColor: Theme.of(context).colorScheme.background,
         body: SafeArea(
             child: SingleChildScrollView(
                 child: Center(
                     child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-              Container(
-                height: 200,
-                width: 400,
-                // child: Lottie.asset('assets/animations/animated_lock.json'),
-              ),
+              Icon(Icons.person,
+                  size: 80,
+                  color: Theme.of(context).colorScheme.inversePrimary),
               const SizedBox(height: 30),
               const Text(
-                'Login',
+                'C I N E T R I B E',
                 style: TextStyle(
-                  color: Colors.black,
                   fontWeight: FontWeight.bold,
                   fontSize: 20,
                 ),
@@ -100,7 +97,8 @@ class _LoginPageState extends State<LoginPage> {
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
                     Text('Forgot Password? ',
-                        style: TextStyle(color: Colors.grey[600]))
+                        style: TextStyle(
+                            color: Theme.of(context).colorScheme.secondary))
                   ],
                 ),
               ),
@@ -108,6 +106,7 @@ class _LoginPageState extends State<LoginPage> {
                 height: 25,
               ),
               MyButton(
+                text: "Sign In",
                 onTap: signIn,
               ),
               const SizedBox(
