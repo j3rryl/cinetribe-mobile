@@ -32,7 +32,7 @@ class _HomeViewState extends State<HomeView> {
           child: _widgetOptions.elementAt(_selectedIndex),
         ),
         bottomNavigationBar: Container(
-          color: Theme.of(context).colorScheme.secondary,
+          color: const Color.fromRGBO(151, 40, 47, 1),
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
             child: GNav(
@@ -43,10 +43,10 @@ class _HomeViewState extends State<HomeView> {
                   });
                 },
                 padding: const EdgeInsets.all(16),
-                backgroundColor: Theme.of(context).colorScheme.secondary,
+                backgroundColor: const Color.fromRGBO(151, 40, 47, 1),
                 color: Colors.white,
-                activeColor: Colors.pink,
-                tabBackgroundColor: Colors.pink.shade50,
+                activeColor: const Color.fromRGBO(151, 40, 47, 1),
+                tabBackgroundColor: Colors.grey.shade50,
                 tabs: const [
                   GButton(icon: Icons.home, text: "Home"),
                   GButton(icon: Icons.search, text: "Search"),

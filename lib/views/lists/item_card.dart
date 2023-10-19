@@ -14,7 +14,7 @@ class _ItemCardState extends State<ItemCard> {
   Widget build(BuildContext context) {
     return Container(
       width: 250,
-      margin: const EdgeInsets.only(right: 20),
+      margin: const EdgeInsets.only(right: 10),
       // decoration: BoxDecoration(
       //   color: Colors.white,
       //   borderRadius: BorderRadius.circular(8.0),
@@ -62,7 +62,7 @@ class _ItemCardState extends State<ItemCard> {
                             decoration: BoxDecoration(
                               borderRadius:
                                   BorderRadius.circular(8.0), // Rounded corners
-                              color: Colors.pink.shade50, // Background color
+                              color: Colors.red.shade50, // Background color
                             ),
                             child: Text(
                               widget.item.name!,

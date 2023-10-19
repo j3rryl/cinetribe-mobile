@@ -1,5 +1,6 @@
 import 'package:cinetribe/models/item_model.dart';
 import 'package:cinetribe/views/lists/item_card.dart';
+import 'package:cinetribe/views/movies/movies_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
@@ -18,7 +19,7 @@ class _MoviesListState extends State<MoviesList> {
   void initState() {
     super.initState();
     moviesStream =
-        FirebaseFirestore.instance.collection('movies').limit(6).snapshots();
+        FirebaseFirestore.instance.collection('movies').limit(5).snapshots();
   }
 
   @override
@@ -30,19 +31,26 @@ class _MoviesListState extends State<MoviesList> {
           children: [
             Text(
               widget.title!,
-              style:
-                  const TextStyle(fontWeight: FontWeight.bold, fontSize: 16.0),
+              style: const TextStyle(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18.0,
+                  color: Colors.black),
             ),
             TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const MoviesPage()));
+                },
                 child: const Text(
                   "See all",
-                  style: TextStyle(color: Colors.pink),
+                  style: TextStyle(color: Color.fromRGBO(151, 40, 47, 1)),
                 ))
           ],
         ),
         const SizedBox(
-          height: 12.0,
+          height: 5.0,
         ),
         SizedBox(
             height: 250,

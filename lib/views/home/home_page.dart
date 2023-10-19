@@ -17,7 +17,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey.shade200,
+      backgroundColor: Theme.of(context).colorScheme.background,
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
@@ -27,7 +27,7 @@ class _HomePageState extends State<HomePage> {
               const SizedBox(width: 8),
               IconButton(
                 icon: const Icon(Icons.logout),
-                color: Colors.black,
+                color: Colors.white,
                 onPressed: logout,
               ),
               const SizedBox(width: 14),
@@ -35,11 +35,12 @@ class _HomePageState extends State<HomePage> {
             expandedHeight: 225,
             floating: false,
             pinned: true,
-            flexibleSpace: FlexibleSpaceBar(
-              background: Container(
-                color: Colors.pink,
+            flexibleSpace: const FlexibleSpaceBar(
+              background: Image(
+                image: AssetImage('assets/images/cinema.jpg'),
+                fit: BoxFit.cover,
               ),
-              title: const Text("C I N E T R I B E"),
+              title: Text("C I N E T R I B E"),
             ),
           ),
           const SliverToBoxAdapter(
@@ -48,7 +49,7 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                 children: [
                   SizedBox(
-                    height: 20.0,
+                    height: 5.0,
                   ),
                   MoviesList("Movies"),
                   SizedBox(
