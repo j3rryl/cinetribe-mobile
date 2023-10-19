@@ -45,8 +45,8 @@ class _HomeViewState extends State<HomeView> {
                 padding: const EdgeInsets.all(16),
                 backgroundColor: Theme.of(context).colorScheme.secondary,
                 color: Colors.white,
-                activeColor: Colors.teal,
-                tabBackgroundColor: Colors.teal.shade50,
+                activeColor: Colors.pink,
+                tabBackgroundColor: Colors.pink.shade50,
                 tabs: const [
                   GButton(icon: Icons.home, text: "Home"),
                   GButton(icon: Icons.search, text: "Search"),

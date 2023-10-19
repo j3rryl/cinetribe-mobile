@@ -1,3 +1,4 @@
+import 'package:cinetribe/views/lists/movies_list.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -23,7 +24,6 @@ class _HomePageState extends State<HomePage> {
             backgroundColor: Colors.transparent,
             // leading: Icon(Icons.menu),
             actions: [
-              const Icon(Icons.search, color: Colors.black),
               const SizedBox(width: 8),
               IconButton(
                 icon: const Icon(Icons.logout),
@@ -33,8 +33,8 @@ class _HomePageState extends State<HomePage> {
               const SizedBox(width: 14),
             ],
             expandedHeight: 225,
-            floating: true,
-            pinned: false,
+            floating: false,
+            pinned: true,
             flexibleSpace: FlexibleSpaceBar(
               background: Container(
                 color: Colors.pink,
@@ -46,7 +46,15 @@ class _HomePageState extends State<HomePage> {
             child: Padding(
               padding: EdgeInsets.all(10.0),
               child: Column(
-                children: [],
+                children: [
+                  SizedBox(
+                    height: 20.0,
+                  ),
+                  MoviesList("Movies"),
+                  SizedBox(
+                    height: 20.0,
+                  ),
+                ],
               ),
             ),
           )
