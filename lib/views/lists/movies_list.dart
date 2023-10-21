@@ -1,5 +1,6 @@
 import 'package:cinetribe/models/item_model.dart';
 import 'package:cinetribe/views/lists/item_card.dart';
+import 'package:cinetribe/views/movies/movie_details.dart';
 import 'package:cinetribe/views/movies/movies_page.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
@@ -18,67 +19,81 @@ class _MoviesListState extends State<MoviesList> {
   @override
   void initState() {
     super.initState();
-    moviesStream =
-        FirebaseFirestore.instance.collection('movies').limit(5).snapshots();
+    moviesStream = FirebaseFirestore.instance
+        .collection("categories")
+        .doc("movie")
+        .collection("movies")
+        .limit(5)
+        .snapshots();
   }
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+    return StreamBuilder<QuerySnapshot>(
+      stream: moviesStream,
+      builder: (context, snapshot) {
+        if (snapshot.hasError) {
+          return const Text('Something went wrong');
+        }
+
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return const Center(child: CircularProgressIndicator());
+        }
+
+        List<Item> movies = snapshot.data!.docs.map((doc) {
+          return Item.fromDocument(doc);
+        }).toList();
+
+        // Return an empty Container if no movie is present
+        if (movies.isEmpty) {
+          return const SizedBox.shrink();
+        }
+
+        return Column(
           children: [
-            Text(
-              widget.title!,
-              style: const TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 18.0,
-                  color: Colors.black),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  widget.title!,
+                  style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      fontSize: 18.0,
+                      color: Colors.black),
+                ),
+                TextButton(
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const MoviesPage()));
+                    },
+                    child: const Text(
+                      "See all",
+                      style: TextStyle(color: Color.fromRGBO(151, 40, 47, 1)),
+                    ))
+              ],
             ),
-            TextButton(
-                onPressed: () {
+            const SizedBox(
+              height: 5.0,
+            ),
+            SizedBox(
+              height: 250,
+              width: double.infinity,
+              child: ListView.builder(
+                scrollDirection: Axis.horizontal,
+                itemCount: movies.length,
+                itemBuilder: (context, index) => ItemCard(movies[index], () {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: (context) => const MoviesPage()));
-                },
-                child: const Text(
-                  "See all",
-                  style: TextStyle(color: Color.fromRGBO(151, 40, 47, 1)),
-                ))
+                          builder: (context) => MovieDetails(movies[index])));
+                }),
+              ),
+            ),
           ],
-        ),
-        const SizedBox(
-          height: 5.0,
-        ),
-        SizedBox(
-            height: 250,
-            width: double.infinity,
-            child: StreamBuilder<QuerySnapshot>(
-                stream: moviesStream,
-                builder: (context, snapshot) {
-                  if (snapshot.hasError) {
-                    return const Text('Something went wrong');
-                  }
-
-                  if (snapshot.connectionState == ConnectionState.waiting) {
-                    return const Center(child: CircularProgressIndicator());
-                  }
-
-                  List<Item> movies = snapshot.data!.docs.map((doc) {
-                    return Item.fromDocument(doc);
-                  }).toList();
-                  return ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: movies.length,
-                    itemBuilder: (context, index) =>
-                        ItemCard(movies[index], () {
-                      // Your navigation logic here
-                    }),
-                  );
-                }))
-      ],
+        );
+      },
     );
   }
 }

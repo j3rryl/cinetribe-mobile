@@ -1,5 +1,6 @@
 import 'package:cinetribe/models/item_model.dart';
 import 'package:cinetribe/views/lists/item_card.dart';
+import 'package:cinetribe/views/movies/movie_details.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +17,11 @@ class _MoviesPageState extends State<MoviesPage> {
   @override
   void initState() {
     super.initState();
-    moviesStream = FirebaseFirestore.instance.collection('movies').snapshots();
+    moviesStream = FirebaseFirestore.instance
+        .collection("categories")
+        .doc("movie")
+        .collection("movies")
+        .snapshots();
   }
 
   @override
@@ -43,7 +48,11 @@ class _MoviesPageState extends State<MoviesPage> {
                 itemBuilder: (context, index) => Padding(
                       padding: const EdgeInsets.symmetric(vertical: 8.0),
                       child: ItemCard(movies[index], () {
-                        // Your navigation logic here
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    MovieDetails(movies[index])));
                       }),
                     ));
           }),
