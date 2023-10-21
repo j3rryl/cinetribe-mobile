@@ -6,6 +6,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class LoginPage extends StatefulWidget {
+  const LoginPage({super.key});
+
   // final VoidCallback showingRegisterPage;
 
   // LoginPage({Key? key, required this.showingRegisterPage}) : super(key: key);
@@ -76,9 +78,8 @@ class _LoginPageState extends State<LoginPage> {
                     child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-              Icon(Icons.person,
-                  size: 80,
-                  color: Theme.of(context).colorScheme.inversePrimary),
+              const Icon(Icons.person,
+                  size: 80, color: Color.fromRGBO(151, 40, 47, 1)),
               const SizedBox(height: 30),
               const Text(
                 'C I N E T R I B E',
@@ -180,8 +181,7 @@ class _LoginPageState extends State<LoginPage> {
                     // onTap: widget.showingRegisterPage,
                     child: const Text(
                       'Register Now',
-                      style: TextStyle(
-                          color: Colors.blue, fontWeight: FontWeight.bold),
+                      style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                   )
                 ],
