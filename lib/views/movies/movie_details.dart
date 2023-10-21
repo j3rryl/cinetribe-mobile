@@ -137,7 +137,6 @@ class _MovieDetailsState extends State<MovieDetails> {
                         elevation: 10,
                         child: Container(
                           decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(16.0),
                               image: DecorationImage(
                                   image: NetworkImage(factions[index].imageUrl),
                                   fit: BoxFit.cover)),
