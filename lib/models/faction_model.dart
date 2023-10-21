@@ -2,12 +2,14 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 class FactionItem {
   final String? id;
+  final String? parentId;
   final String name;
   final String description;
   final String imageUrl;
 
   FactionItem(
     this.id,
+    this.parentId,
     this.name,
     this.description,
     this.imageUrl,
@@ -18,6 +20,7 @@ class FactionItem {
     Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
     return FactionItem(
       data['id'],
+      data['parentId'],
       data['name'],
       data['description'],
       data['imageUrl'],
@@ -27,6 +30,7 @@ class FactionItem {
   Map<String, dynamic> toMap() {
     return {
       'id': id,
+      'parentId': parentId,
       'name': name,
       'description': description,
       'imageUrl': imageUrl,

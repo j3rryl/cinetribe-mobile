@@ -1,4 +1,5 @@
 import 'package:cinetribe/models/faction_model.dart';
+import 'package:cinetribe/views/factions/faction_details.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:cinetribe/models/item_model.dart';
@@ -133,39 +134,52 @@ class _MovieDetailsState extends State<MovieDetails> {
                     shrinkWrap: true,
                     itemCount: factions.length,
                     itemBuilder: (context, index) {
-                      return Card(
-                        elevation: 10,
-                        child: Container(
-                          decoration: BoxDecoration(
-                              image: DecorationImage(
-                                  image: NetworkImage(factions[index].imageUrl),
-                                  fit: BoxFit.cover)),
-                          child: Stack(
-                            children: [
-                              Align(
-                                  alignment: Alignment.bottomLeft,
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Container(
-                                      padding: const EdgeInsets.all(
-                                          8.0), // Adjust padding as needed
-                                      decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(
-                                            8.0), // Rounded corners
-                                        color: Colors
-                                            .red.shade50, // Background color
-                                      ),
-                                      child: Text(
-                                        factions[index].name,
-                                        style: const TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 13.0,
+                      return InkWell(
+                        onTap: () {
+                          // Add the onTap callback
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  FactionDetails(factions[index]),
+                            ),
+                          );
+                        },
+                        child: Card(
+                          elevation: 10,
+                          child: Container(
+                            decoration: BoxDecoration(
+                                image: DecorationImage(
+                                    image:
+                                        NetworkImage(factions[index].imageUrl),
+                                    fit: BoxFit.cover)),
+                            child: Stack(
+                              children: [
+                                Align(
+                                    alignment: Alignment.bottomLeft,
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Container(
+                                        padding: const EdgeInsets.all(
+                                            8.0), // Adjust padding as needed
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.circular(
+                                              8.0), // Rounded corners
+                                          color: Colors
+                                              .red.shade50, // Background color
                                         ),
-                                        overflow: TextOverflow.ellipsis,
+                                        child: Text(
+                                          factions[index].name,
+                                          style: const TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            fontSize: 13.0,
+                                          ),
+                                          overflow: TextOverflow.ellipsis,
+                                        ),
                                       ),
-                                    ),
-                                  ))
-                            ],
+                                    ))
+                              ],
+                            ),
                           ),
                         ),
                       );
