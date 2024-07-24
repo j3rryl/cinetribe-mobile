@@ -20,13 +20,13 @@ class _ProfilePageState extends State<ProfilePage> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.all(15.0),
+            padding: const EdgeInsets.all(15.0),
             child: Column(
               children: [
                 Container(
               height: 80.0,
               width: 80.0,
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 shape: BoxShape.circle,
                 color: Colors.teal,
                 image: DecorationImage(
@@ -35,8 +35,8 @@ class _ProfilePageState extends State<ProfilePage> {
                 )
                ),
               ),
-              SizedBox(height: 10.0,),
-              Align(
+              const SizedBox(height: 10.0,),
+              const Align(
               alignment: Alignment.center,
               child: Text(
                 "Realtor Experience",
@@ -49,7 +49,7 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
             ),
 
-                SizedBox(height: 20.0,),
+                const SizedBox(height: 20.0,),
                 GestureDetector(
   onTap: () {
   },
@@ -62,15 +62,15 @@ class _ProfilePageState extends State<ProfilePage> {
       padding: const EdgeInsets.all(16.0),
       child: Row(
         children: [
-          Icon(Icons.person, color: Colors.teal,),
-          SizedBox(width: 10.0,),
-          Text(
+          const Icon(Icons.person, color: Colors.teal,),
+          const SizedBox(width: 10.0,),
+          const Text(
             "My Account",
             style: TextStyle(color: Colors.grey),
           ),
-          Spacer(),
+          const Spacer(),
           Container(
-            padding: EdgeInsets.all(8.0),
+            padding: const EdgeInsets.all(8.0),
             decoration: BoxDecoration(
               color: Colors.grey.shade200,
               borderRadius: BorderRadius.circular(50.0),
@@ -83,7 +83,7 @@ class _ProfilePageState extends State<ProfilePage> {
   ),
 ),
 
-                SizedBox(height: 12.0,),
+                const SizedBox(height: 12.0,),
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10.0),
@@ -93,17 +93,17 @@ class _ProfilePageState extends State<ProfilePage> {
                     padding: const EdgeInsets.all(16.0),
                     child: Row(
                       children: [
-                        Icon(Icons.settings, color: Colors.teal,),
-                        SizedBox(width: 10.0,),
-                        Text(
+                        const Icon(Icons.settings, color: Colors.teal,),
+                        const SizedBox(width: 10.0,),
+                        const Text(
                           "Settings",
                           style: TextStyle(
                             color: Colors.grey
                           ),
                         ),
-                        Spacer(),  // This will push the next icon to the end
+                        const Spacer(),  // This will push the next icon to the end
                         Container(
-                          padding: EdgeInsets.all(8.0), // You can adjust this for desired spacing
+                          padding: const EdgeInsets.all(8.0), // You can adjust this for desired spacing
                           decoration: BoxDecoration(
                             color: Colors.grey.shade200,  // Background color of the circular container
                             borderRadius: BorderRadius.circular(50.0),  // Making it circular
@@ -114,7 +114,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                   ),
                 ),
-                SizedBox(height: 12.0,),
+                const SizedBox(height: 12.0,),
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10.0),
@@ -124,17 +124,17 @@ class _ProfilePageState extends State<ProfilePage> {
                     padding: const EdgeInsets.all(16.0),
                     child: Row(
                       children: [
-                        Icon(Icons.support_agent, color: Colors.teal,),
-                        SizedBox(width: 10.0,),
-                        Text(
+                        const Icon(Icons.support_agent, color: Colors.teal,),
+                        const SizedBox(width: 10.0,),
+                        const Text(
                           "Support",
                           style: TextStyle(
                             color: Colors.grey
                           ),
                         ),
-                        Spacer(),  // This will push the next icon to the end
+                        const Spacer(),  // This will push the next icon to the end
                         Container(
-                          padding: EdgeInsets.all(8.0), // You can adjust this for desired spacing
+                          padding: const EdgeInsets.all(8.0), // You can adjust this for desired spacing
                           decoration: BoxDecoration(
                             color: Colors.grey.shade200,  // Background color of the circular container
                             borderRadius: BorderRadius.circular(50.0),  // Making it circular
@@ -145,7 +145,7 @@ class _ProfilePageState extends State<ProfilePage> {
                     ),
                   ),
                 ),
-                SizedBox(height: 12.0,),
+                const SizedBox(height: 12.0,),
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10.0),
@@ -155,15 +155,15 @@ class _ProfilePageState extends State<ProfilePage> {
                     padding: const EdgeInsets.all(16.0),
                     child: Row(
                       children: [
-                        Icon(Icons.logout, color: Colors.teal),
-                        SizedBox(width: 10.0),
-                        Text(
+                        const Icon(Icons.logout, color: Colors.teal),
+                        const SizedBox(width: 10.0),
+                        const Text(
                           "Log Out",
                           style: TextStyle(color: Colors.grey),
                         ),
-                        Spacer(),  // This will push the next icon to the end
+                        const Spacer(),  // This will push the next icon to the end
                         Container(
-                          padding: EdgeInsets.all(8.0), // You can adjust this for desired spacing
+                          padding: const EdgeInsets.all(8.0), // You can adjust this for desired spacing
                           decoration: BoxDecoration(
                             color: Colors.grey.shade200,  // Background color of the circular container
                             borderRadius: BorderRadius.circular(50.0),  // Making it circular

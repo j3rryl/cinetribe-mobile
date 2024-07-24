@@ -18,7 +18,7 @@ class _FactionDetailsState extends State<FactionDetails> {
         iconTheme: const IconThemeData(color: Colors.pink),
         backgroundColor: Theme.of(context).colorScheme.background,
         title: Text(
-          widget.item.name!,
+          widget.item.name,
           style: const TextStyle(color: Colors.black),
         ),
       ),
@@ -35,7 +35,7 @@ class _FactionDetailsState extends State<FactionDetails> {
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(16.0),
                     image: DecorationImage(
-                        image: NetworkImage(widget.item.imageUrl!),
+                        image: NetworkImage(widget.item.imageUrl),
                         fit: BoxFit.cover)),
                 child: const Stack(
                   children: [
@@ -53,7 +53,7 @@ class _FactionDetailsState extends State<FactionDetails> {
                 height: 10.0,
               ),
               Text(
-                widget.item.description!,
+                widget.item.description,
                 textAlign: TextAlign.start,
                 style: const TextStyle(
                     fontSize: 14.0, letterSpacing: 0.8, color: Colors.teal),
